@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Future Classes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background: #fafafa;
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+        
+        header h1:hover {
+            transform: scale(1.05);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.2s;
+        }
+        
+        nav a:hover {
+            color: #ffe082;
+            transform: translateY(-2px);
+        }
+        
+        .join-btn {
+            background: white;
+            color: #ff5722;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .join-btn:hover {
+            background: #ffe082;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+        /* ---------- Mobile Menu ---------- */
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+        }
+        
+        .menu-toggle::before,
+        .menu-toggle::after,
+        .menu-toggle div {
+            content: '';
+            background: white;
+            height: 3px;
+            width: 100%;
+            border-radius: 3px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle div {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .menu-toggle::before {
+            top: 0;
+        }
+        
+        .menu-toggle::after {
+            bottom: 0;
+        }
+        
+        #menu-checkbox {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: #ff5722;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+            }
+            #menu-checkbox:checked~nav {
+                max-height: 400px;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            #menu-checkbox:checked+.menu-toggle::before {
+                transform: rotate(45deg);
+                top: 10px;
+            }
+            #menu-checkbox:checked+.menu-toggle::after {
+                transform: rotate(-45deg);
+                bottom: 10px;
+            }
+            #menu-checkbox:checked+.menu-toggle div {
+                opacity: 0;
+            }
+            .join-btn {
+                margin: 10px 0;
+            }
+        }
+        /* Sections for scroll demo */
+        
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        #hero {
+            background: #fff3e0;
+        }
+        
+        #about {
+            background: #ffe0b2;
+        }
+        
+        #fees {
+            background: #ffcc80;
+        }
+        
+        #importance {
+            background: #ffb74d;
+        }
+        
+        #contact {
+            background: #ffa726;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bright Future Classes</h1>
+
+        <input type="checkbox" id="menu-checkbox" hidden>
+        <label for="menu-checkbox" class="menu-toggle">
+      <div></div>
+    </label>
+
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#fees">Fees</a>
+            <a href="#importance">Importance</a>
+            <a href="#contact">Contact</a>
+            <button class="join-btn">Join Now</button>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Welcome to Bright Future Classes</h2>
+        <p>Shaping the future, one student at a time.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We help students achieve academic excellence with expert teachers and proven methods.</p>
+    </section>
+
+    <section id="fees">
+        <h2>Our Fees</h2>
+        <p>Affordable and flexible payment options available.</p>
+    </section>
+
+    <section id="importance">
+        <h2>Why Education Matters</h2>
+        <p>Education empowers, enlightens, and evolves the world.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@brightfutureclasses.com | Phone: +91 98765 43210</p>
+    </section>
+
+    <script>
+        // 💡 Genius JS: Header Shrink + Join Button Glow Animation
+        const header = document.querySelector('header');
+        const joinBtn = document.querySelector('.join-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 20px';
+                header.style.background = 'linear-gradient(90deg, #f57c00, #e64a19)';
+            } else {
+                header.style.padding = '15px 25px';
+                header.style.background = 'linear-gradient(90deg, #ff9800, #ff5722)';
+            }
+        });
+
+        // Glowing join button pulse
+        setInterval(() => {
+            joinBtn.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.8)';
+            setTimeout(() => joinBtn.style.boxShadow = 'none', 600);
+        }, 2000);
+    </script>
+</body>
+
+</html>
