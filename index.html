@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+
+    <title>Bright Future Coaching Classes</title>
+    <style>
+        /* ---------- Reset ---------- */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #fb4b06da;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .info li {
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #ffd60a;
+            color: #333;
+            border: 3px solid blue;
+            border-radius: 50px;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .importance li {
+            font-size: 20px;
+            background-color: rgb(181, 21, 139);
+            color: #060a0f;
+            border: 3px solid rgb(238, 99, 6);
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+        /* ---------- Header ---------- */
+        
+        header {
+            background: #004aad;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd60a;
+        }
+        /* ---------- Hero Section ---------- */
+        
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 2rem;
+            background: rgb(127, 52, 239);
+            color: white;
+        }
+        
+        .hero-text {
+            flex: 1 1 400px;
+            padding-right: 2rem;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .hero-text button {
+            background: #ffd60a;
+            color: #004aad;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .hero-text button:hover {
+            background: #fff;
+            color: #004aad;
+        }
+        
+        .hero img {
+            flex: 1 1 300px;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        /* ---------- About / Teacher ---------- */
+        
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            padding: 3rem 2rem;
+            background: #fff;
+        }
+        
+        .about img {
+            flex: 1 1 300px;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 2 1 400px;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #004aad;
+        }
+        
+        .about-text p {
+            font-size: 1.05rem;
+        }
+        
+        .slider {
+            position: relative;
+            height: auto;
+            width: auto;
+            margin: 60px auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background-color: rgb(255, 145, 0);
+        }
+        
+        .slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #817f7c;
+        }
+        
+        .slide {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+        /*  .slide.active {
+            display: flex;
+        }
+        */
+        
+        .slide img {
+            width: 70%;
+            max-height: 350px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide .desc h2 {
+            color: #dd740b;
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .slide .desc p {
+            color: rgb(93, 163, 224);
+            font-size: 26px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Navigation Dots */
+        
+        .nav {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin: 0 6px;
+            background: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .dot.active {
+            background: #090909;
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #e56f08;
+        }
+        /* Animation */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ---------- Testimonials ---------- */
+        
+        .testimonial {
+            background-color: rgb(136, 211, 240);
+            padding: 80px 0;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        .container-testimonial {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            background-color: transparent;
+        }
+        
+        .testimonial-heading h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-heading p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 50px;
+        }
+        /* ===== Testimonial Box ===== */
+        
+        .testimonial-box-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-box {
+            display: none;
+            background-color: rgb(246, 246, 27);
+            border-radius: 12px;
+            border: 3px solid black;
+            box-shadow: 5px 5px 15px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .testimonial-box.active {
+            display: block;
+        }
+        
+        .revie {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        /* Reviewer Info */
+        
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        
+        .reviewer-info img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 3px solid #424140;
+            box-shadow: 2px 0 2px 0 rgb(23, 4, 4);
+        }
+        
+        .reviewer-info h4 {
+            margin: 0;
+            font-size: 40px;
+            color: #55f18b;
+        }
+        
+        .reviewer-info p {
+            margin: 3px 0 0;
+            color: #888;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        /* Rating Stars */
+        
+        .rating {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+            color: #e56f08;
+            font-size: 20px;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+        /* Review Text */
+        
+        .revie {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        /* Arrows */
+        
+        .arrow-wrapper {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px auto;
+            width: 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        
+        .arrow {
+            background: #6d2068;
+            color: rgb(29, 27, 27);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: 0.3s;
+        }
+        
+        .arrow:hover {
+            background: rgb(105, 201, 9);
+            transform: scale(1.5);
+        }
+        /* Fade Animation */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ---------- Footer ---------- */
+        
+        footer {
+            background: #004aad;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        /* ---------- Responsive ---------- */
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                background: #004aad;
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                padding: 1rem;
+                border-radius: 10px;
+            }
+            nav.active ul {
+                display: flex;
+            }
+            .menu-btn {
+                display: block;
+                background: #ffd60a;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                color: #004aad;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .menu-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo" style="color: orangered;">Bright Future Coaching
+
+        </div>
+        <div class="menu-btn" id="menu-btn">Subjects</div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <h1>Bright Future Coaching</h1>
+            <p style="border: 2px solid gold;text-align: center; border-radius: 20px;padding: 10px; color: greenyellow;font-weight: bold;font-size: 20px;">নিউ ক্লাস 10 এবং ক্লাস 5 - 9 এর ক্লাস শুরু হবে <strong style="font-size: 30px;color: yellow;"><b>16th ডিসেম্বর</b></strong> থেকে সব ছাত্রদের দের <b style="color: #6d2068;">3rd term</b> ফাইনাল পরীক্ষার পর।
+            </p>
+            <ul style="margin: 5px;">
+                <li style="font-size: 24px;font-weight: 900;color: #14d1706f; border: 2px solid black;text-align: center;padding: 12px;list-style-type: none;background-color: white;">ক্লাস 5-8 :- অংক, বিজ্ঞান
+                </li>
+                <li style="font-size: 24px;font-weight: 900;color: #121111; border: 2px solid black;text-align: center;padding: 12px;list-style-type: none;background-color: white;">ক্লাস 9 :- ফিজিকাল সায়েন্স অ্যান্ড লাইফ সায়েন্স
+                </li>
+                <li style="font-size: 24px;font-weight: 900;color: #0755f3; border: 2px solid black;text-align: center;padding: 12px;list-style-type: none;background-color: white;">ক্লাস 10:- ফিজিকাল সায়েন্স অ্যান্ড  লাইফ  সায়েন্স
+                </li>
+            </ul>
+        </div>
+        <img src="t1.jpg" alt="" style="width: 100px ;height: 400px; background-size: cover;" />
+    </section>
+
+    <!-- About -->
+
+    <section class="about" id="about">
+        <img src="ayan.jpg" alt="Teacher profile" />
+        <div class="about-text">
+            <h2>AYAN GHOSH</h2>
+            <p style="font-size: 30px;">Hi, I’m <strong>Mr.Ayan Ghosh</strong>, an experienced Science teacher and a B.TECH final year student along with I have huge teaching experience and passed about 40-50 students till this date.</p>
+        </div>
+
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial">
+        <div class="container-testimonial ">
+            <div class="testimonial-heading ">
+                <h2 style="color: #131212; ">What Our Students Say</h2>
+                <p style="color: rgb(111, 20, 111); font-size: 18px"><strong>A physics tuition centre provides academic support for students learning physics, often using innovative teaching methods like animated videos, activity-based learning, and tech-enabled classrooms</strong></p>
+            </div>
+
+            <div class="testimonial-box-wrapper ">
+
+                <div class="testimonial-box active ">
+                    <div class="reviewer-info ">
+                        <img src="ar.jpg" alt="Arijit Chowdhury ">
+                        <div>
+                            <h4>Arijit Chowdhury</h4>
+                            <p>Class 9</p>
+                        </div>
+                    </div>
+                    <ul class="rating ">
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                    </ul>
+                    <p class="revie ">“Sir, You are one of the best teacher for physics. You always teach each and every perspective of the topic irrespective of the syllabus that helps the students to understand the basics of the topics. Your teaching style is unique
+                        and you always come with an excellent example. ”</p>
+
+                </div>
+
+
+                <div class="testimonial-box ">
+                    <div class="reviewer-info ">
+                        <img src="l3.jpg" alt="Ankit Chatterjee">
+                        <div>
+                            <h4>Ankit Chatterjee</h4>
+                            <p>class 10</p>
+                        </div>
+                    </div>
+                    <ul class="rating ">
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star-half-stroke "></i></li>
+                    </ul>
+                    <p class="revie ">
+                        <p>"By watching sir lecture i actually understand how to do study not only of physics but other subject too.I get hungry for more concept.i really like lecture.Thanks sameer sir for providing us lecture.Concept get clear."</p>
+                </div>
+
+
+
+                <div class="testimonial-box ">
+                    <div class="reviewer-info ">
+                        <img src="k.jpg" .jpg " alt="Kartik Chakraborty ">
+                        <div>
+                            <h4>Kartik Chakraborty</h4>
+                            <p>class 7</p>
+                        </div>
+                    </div>
+                    <ul class="rating ">
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star "></i></li>
+                        <li><i class="fa-solid fa-star-half-stroke "></i></li>
+                    </ul>
+                    <p class="revie ">
+                        <p>" "Thank you for always taking the time to explain complex topics in a way that is easy to understand."</p>
+                    </div>
+
+
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="an.jpg " alt="Anuvab Mitra ">
+                            <div>
+                                <h4>Anuvab Mitra</h4>
+                                <p>class 7</p>
+                            </div>
+                        </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star-half-stroke "></i></li>
+                        </ul>
+                        <p class="revie ">
+
+                            "By watching sir lecture i actually understand how to do study not only of physics but other subject too.I get hungry for more concept.i really like lecture.Thanks Ayan sir for providing us lecture.Concept get clear. "</p>
+                    </div>
+
+
+
+
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="l1.jpg " alt="Anewsa Biswas ">
+                            <div>
+                                <h4>Anwsha Biswas</h4>
+                                <p>Class 10</p>
+                            </div>
+                        </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">"His innovative teaching skills make onerous concepts easier for students to imbibe. Ayan sir cover all the topic with derivation with important point which are necessary for solving difficult question I recommend all of you to
+                            buy subscription of those lecture "</p>
+                    </div>
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="l2.jpg " alt="Swastika Bisal ">
+                            <div>
+                                <h4>Swastika Bisal</h4>
+                                <p>Class 10</p>
+                            </div>
+                        </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">"I am very weak and not interesting in physics one day when I see the video on you tube of respected sir sameer unia i automatically interested and increase curiosity to know all physics thank you but i requested you sir please
+                            upload all lecture free on you tube for poor student which can not afford to paid course "</p>
+                    </div>
+
+
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="l4.jpg " alt="Suborno Pratihar ">
+                            <div>
+                                <h4>Suborno Pratihar</h4>
+                                <p>Class 10</p>
+                            </div>
+                        </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">"sir is the best physics teacher I have ever seen.His way of explanation is exceptionally good. I started watching his videos on YouTube and was really amazed to see how he made the hard concepts so easy to understand. He is really
+                            a great teacher. " </p>
+                    </div>
+
+
+                    <div class="testimonial-box ">
+                        <div class="reviewer-info ">
+                            <img src="l5.jpg " alt="Ankita Barik ">
+                            <div>
+                                <h4>Ankita Barik </h4>
+                                <p>Class 10</p>
+                            </div>
+                        </div>
+                        <ul class="rating ">
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-solid fa-star "></i></li>
+                            <li><i class="fa-regular fa-star "></i></li>
+                        </ul>
+                        <p class="revie ">"Best physics teacher ever seen The visualization of concepts is the best part here for which one should come here "</p>
+                    </div>
+
+                    <!-- Slider arrows -->
+
+
+                </div>
+                <div class="arrow-wrapper ">
+                    <div class="arrow prev "><i class="fa-solid fa-arrow-left "></i></div>
+                    <div class="arrow next "><i class="fa-solid fa-arrow-right "></i></div>
+                </div>
+            </div>
+    </section>
+
+    <div class="cont" style="display: flex;align-items: center;justify-content: center; gap: 20px;flex-wrap: wrap;background-color: #6a6767;">
+        <section class="fees" style="margin: 0 auto;">
+            <h3 style="font-size: 40px; color: rgb(253, 130, 7);font-weight: 800; text-align: center;">ফিস:-
+            </h3>
+            <ul class="info">
+                <li><strong>Class 5 - 8 :- RS 300(দুটো সাবজেক্টে)</strong>
+                </li>
+                <li><strong>Class 9:- Rs 400(দুটো সাবজেক্টে)
+</strong>
+                </li>
+
+                <li><strong>Class 10 :- Rs 500 (দুটো সাবজেক্টে)</strong>
+
+                </li>
+
+            </ul>
+        </section>
+        <section class="importance" style="padding: 20px;">
+            <h4 style="font-size: 40px; color: rgba(208, 21, 133, 0.408);font-weight: 800;text-align: center;">গুরুত্ব:-
+            </h4>
+            <ul style="list-style-type: none;">
+                <li> সপ্তাহে 3 দিন ক্লাস (2 টা সাবজেক্ট এর জন্য )
+                </li>
+                <li> চ্যাপ্টার শেষে এক্সাম
+                </li>
+                <li> সমস্ত চ্যাপ্টার এর নোটস সমেত সাজেশন</li>
+
+                <li>Common Suggestions in exam</li>
+
+                <li>100% অঙ্কের ভীতি দূর
+                </li>
+
+                <li>চ্যাপ্টার ভিত্তিক গুরুত্বপূর্ণ প্রশ্নের নোটস
+                </li>
+
+                <li>MCQ ক্যুইজ
+                </li>
+
+                <li><strong>অতি সুলভ মুল্যে ছাত্র দের মধ্যে বিষয় সম্পর্কে সম্পূর্ণ কন্সেপ্ট তৈরী করা
+</strong></li>
+
+            </ul>
+        </section>
+    </div>
+
+    <!---slider-->
+    <div class="slider ">
+        <div class="slides " style="">
+
+
+            <div class="slide ">
+                <img src="all2.jpg " alt=" " style="background-size: cover;">
+                <div class="desc ">
+                    <h2>ছাত্র দের নিয়ে স্মরণীয় একটি দিন
+                    </h2>
+
+                </div>
+            </div>
+
+            <div class="slide ">
+                <img src="s2.jpg " alt=" " srcset=" ">
+                <div class="desc ">
+                    <h2>ছাত্র দের নিয়ে ফিস্ট
+                    </h2>
+
+                </div>
+            </div>
+
+
+
+            <div class="slide ">
+                <img src="s3.jpg " alt=" " srcset=" ">
+                <div class="desc ">
+                    <h2>একটি অবিস্মরণীয় মুহূর্ত
+                    </h2>
+
+
+                </div>
+            </div>
+
+            <div class="slide ">
+                =<img src="s4.jpg " alt=" " srcset=" ">
+                <div class="desc ">
+                    <h2>শিক্ষক দিবস এর কিচ্ছু মুহূর্ত
+                    </h2>
+
+
+                </div>
+            </div>
+
+
+            <div class="slide ">
+                <img src="g1.jpg" alt=" " srcset=" ">
+                <div class="desc ">
+                    <h2>শিক্ষক দিবস এর কিচ্ছু মুহূর্ত
+                    </h2>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="slide ">
+                <img src="g3.jpg" alt=" " srcset=" ">
+                <div class="desc ">
+                    <h2>ক্লাস 10 এর কিছু গুরুত্বপূর্ণ বই
+
+                    </h2>
+
+
+                </div>
+            </div>
+
+
+            <div class="slide ">
+                <img src="as.jpg" alt=" " srcset=" " style="background-size: cover;">
+                <div class="desc ">
+                    <h2>ক্লাস 7 এর ছাত্রদের সাথে
+
+                    </h2>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="nav "></div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact " style="display: flex;padding: 20px; justify-content: center;align-items: center; ">
+        <p style="font-size: 50px; "><strong style="color: lightsalmon;border: 2px solid yellow;padding: 20px;text-align: center;border-radius: 50px; ">📞 Call:9547146725 </strong><br> ✉️ Email: ayanghosh2k22@gmail.com</p>
+
+
+        <div class="qr-container " style="text-align: center; ">
+            <h2>Scan to Chat on WhatsApp</h2>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://wa.me/919547146725&size=200x200 " alt="WhatsApp QR ">
+            <p>Or click below:</p>
+            <a href="https://wa.me/919547146725 " target="_blank ">Open WhatsApp Chat</a>
+        </div>
+
+        <div class="place ">
+            <ul style="list-style-type: none; ">
+                <li style="font-size: 40px;border:3px solid greenyellow;padding: 20px;font-weight: 900;text-align: center; ">স্থান:-
+                </li>
+                <li style="font-size: 40px;border:3px solid greenyellow;padding: 20px;font-weight: 900;text-align: center; ">জয়ন্তীপুর <br>পশ্চিম মেদিনীপুর
+
+                </li style="font-size: 40px;border:3px solid greenyellow;padding: 20px;font-weight: 900;text-align: center; ">
+                <li style="font-size: 40px;border:3px solid greenyellow;padding: 20px;font-weight: 900;text-align: center; ">পিনকোড:- 721201
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        /*   const menuBtn = document.getElementById('menu-btn');
+           const nav = document.getElementById('nav');
+           menuBtn.addEventListener('click', () => {
+               nav.classList.toggle('active');
+           });*/
+
+
+        // Create navigation dots
+        const slides = document.querySelectorAll('.slide');
+        const nav = document.querySelector('.nav');
+        let currentSlide = 0;
+
+        // Create navigation dots dynamically
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            nav.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === index) ? 'flex' : 'none';
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide every 8 seconds
+        setInterval(nextSlide, 8000);
+
+        // Initialize
+        showSlide(currentSlide);
+
+
+
+        // Testimonials carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            const testimonials = document.querySelectorAll('.testimonial-box');
+            const nextBtn = document.querySelector('.arrow.next');
+            const prevBtn = document.querySelector('.arrow.prev');
+            let current = 0;
+            let interval;
+
+            function showTestimonial(index) {
+                testimonials.forEach((t, i) => {
+                    t.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextTestimonial() {
+                current = (current + 1) % testimonials.length;
+                showTestimonial(current);
+            }
+
+            function prevTestimonial() {
+                current = (current - 1 + testimonials.length) % testimonials.length;
+                showTestimonial(current);
+            }
+
+            // Button Events
+            nextBtn.addEventListener('click', () => {
+                nextTestimonial();
+                resetInterval();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevTestimonial();
+                resetInterval();
+            });
+
+            // Auto Slide every 6s
+            function startAutoSlide() {
+                interval = setInterval(nextTestimonial, 6000);
+            }
+
+            function resetInterval() {
+                clearInterval(interval);
+                startAutoSlide();
+            }
+
+            // Pause on hover
+            const container = document.querySelector('.testimonial-box-wrapper');
+            container.addEventListener('mouseenter', () => clearInterval(interval));
+            container.addEventListener('mouseleave', startAutoSlide);
+
+            // Initialize
+            showTestimonial(current);
+            startAutoSlide();
+        });
+    </script>
+
+</body>
+
+</html>
